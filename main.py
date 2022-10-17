@@ -21,11 +21,11 @@ def set_priority(file, level=2):
     file_text = open(file, 'r').read()
     with open(file, 'w') as f:
         f.write(re.sub(r"(?<=AutoUpdateBehavior\D*)(\d+)", str(level), file_text))
+    print(f"Set priority to level {level} for {file}")
 
 for folder in steam_folders:
     for filename in os.listdir(folder):
         f = os.path.join(folder, filename)
         if os.path.isfile(f):
             if filename.split('.')[1] == 'acf':
-                print(f)
                 set_priority(f, 2)
