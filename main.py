@@ -1,4 +1,6 @@
 import os
+import time
+
 import regex as re
 
 default_steam_directory = "C:\\Program Files (x86)\\Steam"
@@ -29,3 +31,6 @@ for folder in steam_folders:
         if os.path.isfile(f):
             if filename.split('.')[1] == 'acf':
                 set_priority(f, 2)
+
+print("Finished operation")
+time.sleep(10)
